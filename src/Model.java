@@ -28,9 +28,9 @@ public class Model {
      */
     public Coche getCoche(String matricula) {
         // recorre el array buscando por matricula
-        for (Coche coche1 : parking) {
-            if (coche1.matricula.equals(matricula)) {
-                return coche = coche1;
+        for (Coche coche : parking) {
+            if (coche.matricula.equals(matricula)) {
+                return coche;
             }
         }
         return null;
@@ -71,7 +71,7 @@ public class Model {
         coche.velocidad += velocidadAumentar;
 
         // retorna la nueva velocidad
-        return coche.velocidad + velocidadAumentar;
+        return coche.velocidad ;
 
     }
 
@@ -80,7 +80,7 @@ public class Model {
         Coche coche = getCoche(matricula);
         coche.velocidad -= velocidaDisminuida;
         // retorna la nueva velocidad
-        return coche.velocidad - velocidaDisminuida;
+        return coche.velocidad;
     }
 }
 
