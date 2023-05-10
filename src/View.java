@@ -15,7 +15,7 @@ public class View {
      * @return true si todo bien
      */
 
-    boolean mostrarCoche(String modelo, String matricula,boolean aireAcondicionado,boolean tapizadoDeCuero, int numeroDePuertas, int velocidad ) {
+   static boolean mostrarCoche(String modelo, String matricula,boolean aireAcondicionado,boolean tapizadoDeCuero, int numeroDePuertas, int velocidad ) {
 
         String mensaje = "Modelo : " + modelo + "\nCon matricula: " + matricula  + "\nAire Acondicionado: " + aireAcondicionado + "\nNumero de puertas : " + numeroDePuertas + "\nTapizado de cuero: "
                 + tapizadoDeCuero +"\nLA velocidad es :"+ velocidad;
@@ -25,6 +25,8 @@ public class View {
 
         return true;
     }
+
+
 }
 
 

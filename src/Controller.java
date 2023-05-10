@@ -12,6 +12,13 @@ public class Controller {
         miModelo = new Model();
         miVista = new View();
 
+        // instanciamos al observador
+        ObserverVelocidad observoVelocidad = new ObserverVelocidad();
+        miModelo.addObserver(observoVelocidad);
+
+        // instanciamos un segundo observador
+        SegundoObserve otroObservador = new SegundoObserve();
+        miModelo.addObserver(otroObservador);
     }
 
 
@@ -27,7 +34,7 @@ public class Controller {
     public void  crearCoche(String modelo, String matricula, boolean aireAcondicionado, boolean tapizadoDeCuero, int numeroDePuertas, int velocidad) {
         Coche coche = miModelo.crearCoche(modelo, matricula, aireAcondicionado, tapizadoDeCuero, numeroDePuertas, velocidad);
         if (coche != null)
-            miVista.mostrarCoche(coche.modelo, coche.matricula, coche.aireAcondicionado, coche.tapizadoDeCuero, coche.numeroDePuertas, coche.velocidad);
+            View.mostrarCoche(coche.modelo, coche.matricula, coche.aireAcondicionado, coche.tapizadoDeCuero, coche.numeroDePuertas, coche.velocidad);
 
          }
 
@@ -38,8 +45,8 @@ public class Controller {
      * @param velocidad
      * @return velocidad
      */
-    public int aumentarVelocidad(String matricula, int velocidad) {
-        return miModelo.subirVelocidad(matricula, velocidad);
+    public void aumentarVelocidad(String matricula, int velocidad) {
+         miModelo.subirVelocidad(matricula, velocidad);
     }
 
     /**
@@ -49,10 +56,10 @@ public class Controller {
      * @param velocidad
      * @return velocidad
      */
-    public int disminuirVelocidad(String matricula, int velocidad) {
-        return miModelo.bajarVelocidad(matricula, velocidad);
+    public void disminuirVelocidad(String matricula, int velocidad) {
+         miModelo.bajarVelocidad(matricula, velocidad);
     }
-    public Coche  buscar(String matricula) {
-        return miModelo.getCoche(matricula);
+    public Coche buscar(String matricula) {
+        return  Model.getCoche(matricula);
     }
 }
