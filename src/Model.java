@@ -31,7 +31,7 @@ public class Model extends Observable {
      * @param matricula a buscar
      * @return chche o null si no existe
      */
-    public static Coche getCoche(String matricula) {
+    public  Coche getCoche(String matricula) {
         // recorre el array buscando por matricula
         for (Coche coche : parking) {
             if (coche.matricula.equalsIgnoreCase(matricula)) {

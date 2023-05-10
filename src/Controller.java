@@ -19,6 +19,8 @@ public class Controller {
         // instanciamos un segundo observador
         SegundoObserve otroObservador = new SegundoObserve();
         miModelo.addObserver(otroObservador);
+
+
     }
 
 
@@ -60,6 +62,6 @@ public class Controller {
          miModelo.bajarVelocidad(matricula, velocidad);
     }
     public Coche buscar(String matricula) {
-        return  Model.getCoche(matricula);
+        return  miModelo.getCoche(matricula);
     }
 }

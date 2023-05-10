@@ -44,14 +44,19 @@ public class Iu {
         buttonAumentar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               controller.aumentarVelocidad(textFielMatricula.getText(),10 );
+                String matricula = textFielMatricula.getText();
+                textFieldVelocidad.setText(matricula);
+                controller.aumentarVelocidad(matricula, 10);
 
             }
         });
         buttonDisminuir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               controller.disminuirVelocidad(textFielMatricula.getText(),10 );
+                String matricula = textFielMatricula.getText();
+                textFieldVelocidad.setText(matricula);
+                controller.disminuirVelocidad(matricula, 10);
+
 
             }
         });
@@ -62,24 +67,24 @@ public class Iu {
             }
         });
         
-        /*  BuscarButton.addActionListener(new ActionListener() {
+            BuscarButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
-                    String  cocheEncontrado = String.valueOf(controller.buscar(textFielMatricula.getText()));
+                    Coche cocheEncontrado = controller.buscar(textFielMatricula.getText());
                     if (cocheEncontrado != null) {
-                        textFieldModelo.setText(cocheEncontrado);
-                        checkBoxAire.setSelected(Boolean.parseBoolean(cocheEncontrado));
-                        checkBoxpuerta.setSelected(Boolean.parseBoolean(cocheEncontrado));
-                        textFieldNumeropuertas.setText(cocheEncontrado);
-                        textFieldVelocidad.setText(cocheEncontrado);
+                        textFieldModelo.setText(cocheEncontrado.getModelo());
+                        checkBoxAire.setSelected(cocheEncontrado.isAireAcondicionado());
+                        checkBoxpuerta.setSelected(cocheEncontrado.isTapizadoDeCuero());
+                        textFieldNumeropuertas.setText(String.valueOf(cocheEncontrado.getNumeroDePuertas()));
+                        textFieldVelocidad.setText(String.valueOf(cocheEncontrado.getVelocidad()));
 
                     } else {
 
                         JOptionPane.showMessageDialog(null,"No se encontró ningún coche con la matrícula " + textFielMatricula.getText());
                     }
                 }
-            });*/
+            });
     }
     /**
      * Metodos en donde creamos la ventana
