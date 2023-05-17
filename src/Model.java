@@ -22,7 +22,6 @@ public class Model extends Observable {
 
         parking.add(coche);
         return coche;
-
     }
 
     /**
@@ -31,7 +30,7 @@ public class Model extends Observable {
      * @param matricula a buscar
      * @return chche o null si no existe
      */
-    public  Coche getCoche(String matricula) {
+    public static  Coche getCoche(String matricula) {
         // recorre el array buscando por matricula
         for (Coche coche : parking) {
             if (coche.matricula.equalsIgnoreCase(matricula)) {
@@ -42,7 +41,7 @@ public class Model extends Observable {
     }
 
     /**
-     * @param matricula
+     * @param matricula del coche
      * @param velocidadTotal nueva velocidad
      * @return velocidad modificada
      */
@@ -56,11 +55,6 @@ public class Model extends Observable {
         // lo notificamos a todos los observadores
         notifyObservers(coche);
 
-        // ya no retornamos la nueva velocidad
-        // porque vamos a utilizar el patron observer
-        // return getCoche(matricula).velocidad;
-        // retorna la nueva velocidad
-        // return coche.velocidad;
     }
 
     /**
@@ -68,16 +62,15 @@ public class Model extends Observable {
      *
      * @param matricula coche
      */
-    public Integer getVelocidad(String matricula) {
+    public  static  Integer getVelocidad(String matricula) {
         Coche coche = getCoche(matricula);
         return coche.velocidad;
     }
 
     /**
      * @param velocidadAumentar nueva velocidad
-     * @return velocidad modificada
      */
-    public void subirVelocidad(String matricula, int velocidadAumentar) {
+    public void  subirVelocidad(String matricula, int velocidadAumentar) {
 
         // busca el coche
         Coche coche = getCoche(matricula);
@@ -87,11 +80,7 @@ public class Model extends Observable {
         // lo notificamos a todos los observadores
         notifyObservers(coche);
 
-        // ya no retornamos la nueva velocidad
-        // porque vamos a utilizar el patron observer
-        // return  coche.velocidad;
     }
-
     /**
      * @param velocidadDisminuir nueva velocidad
      * @return velocidad modificada
@@ -105,8 +94,7 @@ public class Model extends Observable {
         // lo notificamos a todos los observadores
         notifyObservers(coche);
 
-        // retorna la nueva velocidad
-        // return coche.velocidad;
+
     }
 }
 

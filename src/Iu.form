@@ -137,6 +137,7 @@
         </constraints>
         <properties>
           <horizontalAlignment value="0"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="4f1eb" class="javax.swing.JTextField" binding="textFielMatricula">

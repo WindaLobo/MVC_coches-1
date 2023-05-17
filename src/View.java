@@ -1,7 +1,12 @@
+import javax.swing.*;
+
 public class View {
+
+    public Iu form;
+
     public View() {
         // creamos la ventana
-        Iu.crearVentana();
+        form = Iu.crearVentana();
     }
 
     /**
@@ -22,7 +27,6 @@ public class View {
 
         System.out.println(mensaje);
         Dialogo.mostrarMensaje(mensaje);
-
         return true;
     }
 

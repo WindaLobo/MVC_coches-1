@@ -9,7 +9,6 @@ public class Iu {
     private JTextField textFieldModelo;
     private JPanel panelIu;
     private JLabel lblModelo;
-
     private JTextField textFieldNumeropuertas;
     private JLabel lblMatricula;
     private JLabel JlbAire;
@@ -19,10 +18,9 @@ public class Iu {
     private JCheckBox checkBoxpuerta;
     private JButton buttonAumentar;
     private JButton buttonDisminuir;
-    private JTextField textFieldVelocidad;
+    public JTextField textFieldVelocidad;
     private JButton Buttonsalir;
     private JButton BuscarButton;
-
     public Iu() {
 
         controller = new Controller();
@@ -36,7 +34,6 @@ public class Iu {
                 int numeroPuertas = Integer.parseInt(textFieldNumeropuertas.getText());
                 int  velocidad = Integer.parseInt(textFieldVelocidad.getText()) ;
 
-
                 controller.crearCoche(modelo, matricula, tieneAireAcondicionado, tieneTapizado, numeroPuertas,velocidad);
 
             }
@@ -45,19 +42,14 @@ public class Iu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String matricula = textFielMatricula.getText();
-                textFieldVelocidad.setText(matricula);
-                controller.aumentarVelocidad(matricula, 10);
-
+               controller.aumentarVelocidad(matricula, 10);
             }
         });
         buttonDisminuir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String matricula = textFielMatricula.getText();
-                textFieldVelocidad.setText(matricula);
                 controller.disminuirVelocidad(matricula, 10);
-
-
             }
         });
         Buttonsalir.addActionListener(new ActionListener() {
@@ -88,14 +80,17 @@ public class Iu {
     }
     /**
      * Metodos en donde creamos la ventana
+     * Instanciamos Iu principal
      */
-    public static void crearVentana(){
+    public static Iu crearVentana(){
         JFrame jframe = new JFrame("App ");
-        jframe.setContentPane(new Iu().panelIu);
+        Iu form = new Iu();
+        jframe.setContentPane(form.panelIu);
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe.pack();
         jframe.setVisible(true);
         jframe.setBounds(500, 200, 500, 350);
+        return form;
     }
 }
 

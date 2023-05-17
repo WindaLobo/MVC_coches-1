@@ -13,11 +13,8 @@ public class Coche {
         this.tapizadoDeCuero = tapizadoDeCuero;
         this.aireAcondicionado = aireAcondicionado;
         this.velocidad = velocidad;
-
     }
-
     public Coche() {
-
 
     }
     public void setVelocidad(int velocidad) {
@@ -73,5 +70,9 @@ public class Coche {
         return velocidad;
     }
 
+    @Override
+    public String toString() {
+        return "Coche " + getModelo();
 
+    }
 }
