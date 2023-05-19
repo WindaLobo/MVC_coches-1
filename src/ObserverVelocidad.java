@@ -10,11 +10,7 @@ public class ObserverVelocidad implements Observer{
       * @param o   el observable, en nuestro caso es el Model
      * @param observer el argumento pasado por el observable, el coche actualizado
      */
-    private  final Iu form;
 
-    public ObserverVelocidad(Iu form){
-        this.form = form;
-    }
     @Override
     public void update(Observable o, Object observer) {
         // el argumento es tipo Object, porque es general
@@ -23,7 +19,7 @@ public class ObserverVelocidad implements Observer{
         System.out.println("Se ha cambiado la velocidad: " + coche.velocidad);
         // le comunicamos a la vista que muestre la velocidad
         View.mostrarCoche(coche.modelo, coche.matricula, coche.aireAcondicionado, coche.tapizadoDeCuero, coche.numeroDePuertas, coche.velocidad);
-        form.textFieldVelocidad.setText(String.valueOf(coche.velocidad));
+
     }
 
 }

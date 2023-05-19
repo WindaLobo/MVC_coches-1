@@ -13,7 +13,7 @@ public class Controller {
         miVista = new View();
 
         // instanciamos al observador
-        ObserverVelocidad observoVelocidad = new ObserverVelocidad(miVista.form);
+        ObserverVelocidad observoVelocidad = new ObserverVelocidad();
         miModelo.addObserver(observoVelocidad);
 
         // instanciamos un segundo observador

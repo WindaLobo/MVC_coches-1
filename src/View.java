@@ -2,7 +2,8 @@ import javax.swing.*;
 
 public class View {
 
-    public Iu form;
+
+    public static Iu form;
 
     public View() {
         // creamos la ventana
@@ -26,6 +27,7 @@ public class View {
                 + tapizadoDeCuero +"\nLA velocidad es :"+ velocidad;
 
         System.out.println(mensaje);
+       form.textFieldVelocidad.setText(String.valueOf(velocidad));
         Dialogo.mostrarMensaje(mensaje);
         return true;
     }
