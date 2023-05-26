@@ -1,21 +1,62 @@
 public class Controller {
+    static Model miModelo;
+    static View miVista;
+
+
+    /**
+     * Este es el punto inicial de nuestra aplicación
+     * Las tareas iniciales estarían en este método
+     * @param args no usadas
+     */
     public static void main(String[] args) {
-        Model miModelo = new Model();
-        View miVista = new View();
+        miModelo = new Model();
+        miVista = new View();
 
-        // Crear tres coches
+        ObsExceso obsExceso = new ObsExceso();
+        miModelo.addObserver(obsExceso);
 
-        miModelo.crearCoche("LaFerrari", "SBC 1234");
-        miModelo.crearCoche("Alpine", "HYU 4567");
-        miModelo.crearCoche("Aston Martin", "FGH 3333");
-
-        Coche ferrari = miModelo.getCoche("SBC 1234");
-        // modifica la velocidad
-        miModelo.cambiarVelocidad("SBC 1234", 30);
-
-        // recoje la velocidad y la muestra (tarea de la View)
-        boolean hecho = miVista.muestraVelocidad("SBC 1234", miModelo.getVelocidad("SBC 1234"));
-
-        System.out.println(hecho);
     }
+
+    /**
+     * @param modelo del coche
+     * @param matricula del coche
+     * @param aireAcondicionado un boolean para verificar si tiene aire acondicionado
+     * @param tapizadoDeCuero un boolean para comprobar si tiene tapizado
+     * @param numeroDePuertas numero de puertas del coche
+     * @param velocidad;
+     */
+
+
+    public void  crearCoche(String modelo, String matricula, boolean aireAcondicionado, boolean tapizadoDeCuero, int numeroDePuertas, int velocidad) {
+        Coche coche = miModelo.crearCoche(modelo, matricula, aireAcondicionado, tapizadoDeCuero, numeroDePuertas, velocidad);
+        if (coche != null)
+            View.mostrarCoche(coche.modelo, coche.matricula, coche.aireAcondicionado, coche.tapizadoDeCuero, coche.numeroDePuertas, coche.velocidad);
+
+    }
+
+    /**
+     * Metodo aumentarVelocidad
+     * @param matricula del coche
+     * @param velocidad del coche
+     */
+    public void aumentarVelocidad(String matricula, int velocidad) {
+        miModelo.subirVelocidad(matricula, velocidad);
+    }
+    /**
+     * Metodo  dismuirVelocidad
+     * @param matricula del coche
+     * @param velocidad velocidad del coche
+     */
+    public void disminuirVelocidad(String matricula, int velocidad) {
+        miModelo.bajarVelocidad(matricula, velocidad);
+    }
+
+    /**
+     * @param matricula buscamos el coche mediante de la matricula
+     * @return la matricula
+     */
+    public Coche buscar(String matricula) {
+        return  Model.getCoche(matricula);
+    }
+
 }
